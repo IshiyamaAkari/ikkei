@@ -38,14 +38,13 @@ img{
   top: 0;
   left: 0;
   background: #FFF;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.08);
   z-index: 10;
   margin: 0 0 0 auto;
-
   &-wrap {
     box-sizing: border-box;
     transition: 0.5s;
     box-sizing: border-box;
-    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.08);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -185,6 +184,19 @@ img{
       color:#DA1725;
       font-weight: 700;
       font-size: 1.2rem;
+      position: relative;
+      &::after{
+        content: "";
+        display: block;
+        background-color: #DA1725;
+        clip-path: polygon(50% 40%, 0% 100%, 100% 100%);
+        width:30%;
+        height:25px;
+        position: absolute;
+        top:100%;
+        left:50%;
+        transform: rotate(180deg) translateX(50%);
+      }
     }
     & h2{
       font-size: 1.5rem;
@@ -1155,6 +1167,11 @@ img{
       & .check{
         font-size: clamp(0.9rem,2vw,1rem);
         padding:3px 8px;
+        &::after{
+          width:20%;
+          height:20px;
+          position: absolute;
+        }
       }
       & h2{
         font-size: clamp(0.9rem, 2.2vw, 1.1rem);
@@ -1794,8 +1811,7 @@ img{
           &__ttl{
             width:100%;
             &::after{
-              right:auto;
-              left:30%;
+              position: initial;
             }
           }
           &__input, &__area{
@@ -1806,8 +1822,8 @@ img{
             flex-wrap: wrap;
             flex-direction: row;
             & .contact-wrap__form__box__checkbox{
-              width:20%;
-              margin-right: 10px;
+              width:fit-content;
+              margin-right: 20px;
             }
           }
         }
@@ -2226,9 +2242,6 @@ img{
             }
           }
           &:nth-of-type(5){
-            & .contact-wrap__form__box__checkbox {
-              width:30%;
-            }
           }
         }
         & .submit{

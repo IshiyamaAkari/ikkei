@@ -39,6 +39,7 @@ img {
   top: 0;
   left: 0;
   background: #FFF;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.08);
   z-index: 10;
   margin: 0 0 0 auto;
 }
@@ -46,7 +47,6 @@ img {
   box-sizing: border-box;
   transition: 0.5s;
   box-sizing: border-box;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -175,6 +175,19 @@ img {
   color: #DA1725;
   font-weight: 700;
   font-size: 1.2rem;
+  position: relative;
+}
+.top-wrap__left .check::after {
+  content: "";
+  display: block;
+  background-color: #DA1725;
+  clip-path: polygon(50% 40%, 0% 100%, 100% 100%);
+  width: 30%;
+  height: 25px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: rotate(180deg) translateX(50%);
 }
 .top-wrap__left h2 {
   font-size: 1.5rem;
@@ -1086,6 +1099,11 @@ img {
     font-size: clamp(0.9rem, 2vw, 1rem);
     padding: 3px 8px;
   }
+  .top-wrap__left .check::after {
+    width: 20%;
+    height: 20px;
+    position: absolute;
+  }
   .top-wrap__left h2 {
     font-size: clamp(0.9rem, 2.2vw, 1.1rem);
   }
@@ -1640,8 +1658,7 @@ img {
     width: 100%;
   }
   .contact-wrap__form form .contact-wrap__form__box__ttl::after {
-    right: auto;
-    left: 30%;
+    position: initial;
   }
   .contact-wrap__form form .contact-wrap__form__box__input, .contact-wrap__form form .contact-wrap__form__box__area {
     width: 100%;
@@ -1652,8 +1669,8 @@ img {
     flex-direction: row;
   }
   .contact-wrap__form form .contact-wrap__form__box:nth-of-type(5) .contact-wrap__form__box__checkbox {
-    width: 20%;
-    margin-right: 10px;
+    width: fit-content;
+    margin-right: 20px;
   }
   .contact-wrap__form form .submit {
     padding: 15px 40px;
@@ -2006,9 +2023,6 @@ img {
     border: solid 1.5px #DA1725;
     border-radius: 1px;
     left: 38%;
-  }
-  .contact-wrap__form form .contact-wrap__form__box:nth-of-type(5) .contact-wrap__form__box__checkbox {
-    width: 30%;
   }
   .contact-wrap__form form .submit {
     padding: 12px 30px;
